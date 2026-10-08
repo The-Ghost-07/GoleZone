@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products - GoalZone</title>
+  <meta name="description" content="Browse football jerseys, boots, gloves, footballs and more at GoalZone.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/premium.css">
+</head>
+<body data-page="list">
+  <div id="site-header"></div>
+
+  <main class="container list-layout">
+    <!-- Filters: built by main.js. On mobile this becomes a slide-in drawer -->
+    <aside class="filters" id="filters" aria-label="Filters"></aside>
+    <div class="overlay" id="fOverlay"></div>
+
+    <section class="results">
+      <h1 id="title">All products</h1>
+      <div class="topbar panel">
+        <button class="btn filter-open" id="openFilters">☰ Filters</button>
+        <span id="count" aria-live="polite"></span>
+        <label>Sort by
+          <select id="sort">
+            <option value="featured">Featured</option>
+            <option value="plow">Price: Low to High</option>
+            <option value="phigh">Price: High to Low</option>
+            <option value="new">Newest Arrivals</option>
+            <option value="discount">Biggest Discount</option>
+            <option value="best">Best Sellers</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid-products" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Pagination"></nav>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/premium.js"></script>
+</body>
+</html>

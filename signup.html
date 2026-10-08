@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account - GoalZone</title>
+  <meta name="description" content="GoalZone - Create account">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/premium.css">
+</head>
+<body data-page="signup">
+  <div id="site-header"></div>
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h1>Create account</h1>
+      <form id="signupForm" novalidate>
+        <label for="sName">Your name</label>
+        <input id="sName" autocomplete="name"><small class="msg" id="e-sName"></small>
+        <label for="sId">Email or mobile number</label>
+        <input id="sId" autocomplete="username"><small class="msg" id="e-sId"></small>
+        <label for="sPass">Password</label>
+        <div class="pw"><input id="sPass" type="password" autocomplete="new-password"><button type="button" class="pw-toggle" data-toggle="sPass">Show</button></div>
+        <div class="meter"><i id="meterBar"></i></div><small id="meterText"></small>
+        <small class="msg" id="e-sPass"></small>
+        <label for="sConfirm">Confirm password</label>
+        <div class="pw"><input id="sConfirm" type="password" autocomplete="new-password"><button type="button" class="pw-toggle" data-toggle="sConfirm">Show</button></div>
+        <small class="msg" id="e-sConfirm"></small>
+        <label class="chk"><input type="checkbox" id="sTerms"> I agree to the GoalZone terms and privacy policy</label>
+        <small class="msg" id="e-sTerms"></small>
+        <button class="btn btn-block">Create your account</button>
+      </form>
+      <p>Already have an account? <a href="login.html"><b>Sign in</b></a></p>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/products.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/premium.js"></script>
+</body>
+</html>

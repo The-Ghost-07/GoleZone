@@ -1,0 +1,548 @@
+@import url('https://fonts.cdnfonts.com/css/atlanta-college');
+
+/* =========================================================
+   GOALZONE // LIGHT CLASSY FOOTBALL THEME
+   Visual layer only — commerce/auth/storage logic is unchanged.
+   ========================================================= */
+:root{
+  --pitch:#14213D;
+  --pitch-2:#1c2d4f;
+  --green:#B8963E;
+  --green-dark:#8e722c;
+  --lime:#B8963E;
+  --bg:#FAF8F5;
+  --card:#FFFFFF;
+  --card-solid:#FFFFFF;
+  --text:#1A1A1A;
+  --muted:#77736d;
+  --line:#E8E2D8;
+  --danger:#B94A48;
+  --star:#B8963E;
+  --radius:10px;
+  --shadow:0 8px 28px rgba(30,25,18,.07);
+  --shadow-lg:0 16px 42px rgba(30,25,18,.12);
+  --font-head:"Playfair Display","Cormorant Garamond",Georgia,serif;
+  --font-body:"Inter","Poppins",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+}
+body::before{display:none}
+a{color:inherit;transition:color .3s ease}
+h1,h2,h3,h4,.logo{font-family:var(--font-head);letter-spacing:0}
+.container{max-width:1400px;padding-left:clamp(1rem,3vw,2.25rem);padding-right:clamp(1rem,3vw,2.25rem)}
+.section{margin:clamp(2rem,5vw,4rem) auto}
+.section-head{margin-bottom:1.25rem}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.55rem);font-weight:600}
+.section-head a{color:var(--pitch)}
+.section-head::after{background:linear-gradient(90deg,var(--green) 0 64px,var(--line) 64px)!important}
+
+/* Header */
+.hdr{
+  background:rgba(255,255,255,.94);
+  color:var(--text);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 3px 18px rgba(30,25,18,.04);
+}
+.hdr-top{min-height:72px}
+.logo{font-size:2.1rem;color:var(--pitch)}
+.logo span{color:var(--green)}
+.search{
+  border:1px solid #DCD5C9;
+  border-radius:10px;
+  background:#fff;
+  overflow:visible;
+}
+.search input,.search select{background:#fff;color:var(--text)}
+.search input::placeholder{color:#99938a}
+.search select option{background:#fff;color:var(--text)}
+.search button{background:var(--pitch);color:#fff;border-radius:0 9px 9px 0}
+.suggest{background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow)}
+.suggest a:hover{background:#F7F3EC}
+.hdr-link{color:#514d47}
+.hdr-link b{color:var(--text)}
+.cart-link{color:var(--pitch)}
+.badge-count{background:var(--green);color:#fff}
+.hdr-nav{background:#fff;border-top:1px solid #F0ECE5}
+.hdr-nav .container{gap:1.35rem;padding-top:.7rem;padding-bottom:.7rem}
+.hdr-nav a{color:#625e57}
+.hdr-nav a:hover{color:var(--pitch)}
+.hdr-nav a::after{background:var(--green)}
+.side-menu{background:#fff;color:var(--text);border-right:1px solid var(--line);box-shadow:var(--shadow-lg)}
+.side-menu h3{background:#FAF8F5}
+.side-menu a{border-color:var(--line);color:#4d4943}
+.side-menu a:hover{background:#F7F3EC}
+
+/* Remove the old promotional/ticker strip */
+.ticker{display:none!important}
+
+/* Hero */
+.hero{
+  border:1px solid var(--line)!important;
+  border-radius:14px!important;
+  box-shadow:0 18px 55px rgba(30,25,18,.11);
+  background:#eee!important;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.86) 35%,rgba(255,255,255,.35) 67%,rgba(255,255,255,.04) 100%);
+}
+.pitch,.hero-ball{display:none}
+.slides{position:relative;z-index:0}
+.slides .slide:nth-child(n){
+  min-height:clamp(450px,52vw,650px)!important;
+  padding:clamp(3rem,7vw,5.8rem) clamp(1.5rem,7vw,6.5rem)!important;
+  background-position:center!important;
+  background-size:cover!important;
+}
+.slides .slide:nth-child(1){
+  background-image:url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1800&q=85")!important;
+}
+.slides .slide:nth-child(2){
+  background-image:url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1800&q=85")!important;
+}
+.slides .slide:nth-child(3){
+  background-image:url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1800&q=85")!important;
+}
+.hero-copy{position:relative;z-index:3;max-width:620px}
+.slide .num{display:none}
+.hero-kicker{
+  color:var(--green)!important;
+  font:600 .78rem/1 var(--font-body)!important;
+  letter-spacing:.16em!important;
+}
+.slide h1{
+  color:var(--text)!important;
+  font-size:clamp(3.2rem,7vw,6.8rem)!important;
+  line-height:.95!important;
+  text-shadow:none!important;
+}
+.slide h1 .ln{display:block}
+.slide p{
+  color:#5f5a53!important;
+  max-width:520px;
+  font-size:clamp(.95rem,1.4vw,1.08rem);
+  line-height:1.75;
+}
+.hero-actions{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
+.hero-secondary{color:var(--pitch)!important;font-weight:600}
+.hero-secondary:hover{color:var(--green)!important}
+.hero-trust{color:#6f6a62!important}
+.hero-trust i{background:#CFC8BC!important}
+.hero-arrow{
+  z-index:4;border-radius:50%!important;
+  background:rgba(255,255,255,.86)!important;
+  color:var(--pitch)!important;
+  border:1px solid var(--line)!important;
+  box-shadow:var(--shadow);
+}
+.hero-arrow:hover{background:var(--pitch)!important;color:#fff!important;box-shadow:var(--shadow-lg)}
+.dots{z-index:4}
+.dots button{background:#fff!important;border:1px solid #CFC8BC!important}
+.dots button.active{background:var(--green)!important;border-color:var(--green)!important;box-shadow:none}
+
+/* Buttons */
+.btn{
+  border-radius:9px!important;
+  border:1px solid var(--pitch);
+  background:var(--pitch);
+  color:#fff;
+  box-shadow:none;
+  text-transform:none;
+  letter-spacing:.02em;
+  padding:.72rem 1.2rem;
+  transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease,box-shadow .3s ease;
+}
+.btn::before{background:var(--green)!important}
+.btn:hover{color:#fff!important;background:#20365f!important;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,33,61,.12)}
+.btn-lime{background:var(--pitch)!important;color:#fff!important;border-color:var(--pitch)}
+.btn-lime:hover{background:var(--green)!important;border-color:var(--green)!important;color:#fff!important}
+.btn-outline{background:#fff!important;color:var(--pitch)!important;border-color:#D8D0C3!important}
+.btn-outline:hover{background:#F7F3EC!important;color:var(--pitch)!important}
+
+/* Panels/cards */
+.panel,.pcard,.cat-tile,.auth-card,.acct,.filters,.topbar,.order,.detail-section,.buybox,.review-grid{
+  background:#fff!important;
+  border:1px solid var(--line)!important;
+  box-shadow:var(--shadow)!important;
+  color:var(--text);
+  border-radius:var(--radius)!important;
+}
+.panel{backdrop-filter:none}
+.cat-tile{overflow:hidden}
+.cat-tile b,.pname{color:var(--text)}
+.cat-tile:hover,.pcard:hover{border-color:#D8C9A8!important;box-shadow:var(--shadow-lg)!important}
+.grid-cats{gap:1rem}
+.cat-tile::before{background:linear-gradient(180deg,rgba(20,33,61,0) 30%,rgba(20,33,61,.72) 100%)}
+.cat-tile::after{background:rgba(255,255,255,.9);color:var(--pitch);border:1px solid var(--line)}
+.cat-tile:hover::after{background:var(--green);color:#fff}
+.cat-thumb{background:#f1eee8;filter:saturate(.88) contrast(1.02)}
+.cat-tile:hover .cat-thumb{filter:saturate(1) contrast(1.04)}
+.circle{color:#514d47}
+.circle img{border-color:var(--line)!important;background:#fff}
+.circle:hover img{border-color:var(--green)!important;box-shadow:0 5px 18px rgba(184,150,62,.15)}
+.pcard .pimg{background:#F4F1EB}
+.pcard .pbody{background:#fff}
+.pcard .btn{background:var(--pitch)!important;color:#fff!important;border-color:var(--pitch)!important}
+.pcard .btn:hover{background:var(--green)!important;border-color:var(--green)!important;color:#fff!important}
+.pname{font-family:var(--font-body);font-weight:600}
+.price{font-family:var(--font-head);font-weight:600;color:var(--pitch)}
+.mrp{color:var(--muted)}
+.off,.tag,.heart{display:none!important}
+
+/* Clean product cards: image, name, price, Add to Cart */
+.pcard{border-radius:10px!important}
+.pcard .pbody{padding:1rem;gap:.55rem}
+.pcard .pname{font-size:.94rem;line-height:1.4}
+.pcard .price{font-size:1.55rem}
+.pcard .btn{margin-top:.35rem;width:100%}
+.carousel .pcard{min-width:225px;max-width:225px}
+
+/* Sections / utility */
+.deals-dark{
+  background:#fff!important;
+  border-color:var(--line)!important;
+}
+.timer span{background:var(--pitch);color:#fff;border-radius:7px}
+.newsletter{
+  background:#fff!important;
+  border:1px solid var(--line)!important;
+}
+.newsletter h2{font-size:2.35rem}
+.newsletter input,.coupon input{
+  background:#fff!important;color:var(--text)!important;border-color:#DCD5C9!important;
+}
+.brand-strip span{color:#817b72!important}
+.brand-strip span:hover{color:var(--pitch)!important}
+input,select,textarea{
+  background:#fff;
+  color:var(--text);
+  border-color:#DCD5C9!important;
+}
+input::placeholder,textarea::placeholder{color:#9A948B}
+.filters a,.filters label,.results label,.auth-card label{color:#5d5851}
+.results h1{
+  background:#fff!important;
+  border-left-color:var(--green)!important;
+}
+.bar{background:#EAE5DC}
+.bar i{background:var(--green)}
+.cart-row,.review,.sum-row.total,.order-head{border-color:var(--line)!important}
+.order-head{background:#FAF8F5!important}
+.steps li,.track li{background:#F1EEE8;color:#77736d}
+.steps li.done,.track li.done{background:var(--green);color:#fff}
+.addr{border-color:var(--line);background:#fff}
+.stepper{border-color:#DCD5C9}
+.stepper button,.stepper span{background:#FAF8F5;color:var(--text)}
+.link-btn{color:var(--pitch)!important}
+.link-btn:hover{color:var(--green)!important}
+.auth-card{padding:1.7rem!important}
+.auth-card h1{font-size:3rem}
+.meter{background:#EAE5DC}
+
+/* Footer */
+.to-top{background:#F2EEE7!important;color:var(--pitch)!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.footer{background:#14213D!important;border-top:1px solid #14213D}
+.footer a,.footer p{color:#D6D9E0}
+.footer a:hover{color:#E4C978}
+.footer-bottom{border-color:rgba(255,255,255,.12)!important;color:#AEB5C2}
+
+/* Keep entrance animation, but make it subtle/classy */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.revealed{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.985) translateY(8px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.reveal-scale.revealed{opacity:1;transform:none}
+.stagger-item{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.stagger-item.revealed{opacity:1;transform:none}
+@media(max-width:900px){
+  .hdr-top{padding-top:.8rem;padding-bottom:.8rem}
+  .hero{border-radius:12px!important}
+  .slides .slide:nth-child(n){min-height:500px!important;padding:3rem 1.35rem!important}
+  .slide h1{font-size:clamp(3rem,14vw,5rem)!important}
+  .slide p{max-width:430px}
+  .carousel .pcard{min-width:205px;max-width:205px}
+}
+@media(max-width:600px){
+  .container{padding-left:1rem;padding-right:1rem}
+  .section{margin:1.6rem auto}
+  .section-head h2{font-size:1.7rem}
+  .slides .slide:nth-child(n){min-height:520px!important}
+  .hero::after{background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.72) 70%,rgba(255,255,255,.3))}
+  .hero-actions{align-items:stretch;flex-direction:column}
+  .hero-actions .btn,.hero-actions .hero-secondary{width:max-content}
+  .carousel .pcard{min-width:190px;max-width:190px}
+  .auth-card{padding:1.25rem!important}
+  .auth-card h1{font-size:2.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .reveal,.reveal-scale,.stagger-item{opacity:1!important;transform:none!important}
+}
+
+/* ===== Final readability + Atlanta College display type ===== */
+
+:root{
+  --font-head:'Atlanta College', Georgia, serif;
+  --font-body:'Inter','Poppins',system-ui,sans-serif;
+}
+
+/* Hero: keep the photograph visible while giving the copy a clean readable zone. */
+.hero::after{
+  background:linear-gradient(90deg,
+    rgba(250,248,245,.96) 0%,
+    rgba(250,248,245,.88) 24%,
+    rgba(250,248,245,.52) 48%,
+    rgba(250,248,245,.16) 72%,
+    rgba(250,248,245,.03) 100%)!important;
+}
+.hero-copy{
+  max-width:650px;
+  padding:1.1rem 1.35rem 1.25rem;
+  border-left:3px solid var(--green);
+  background:rgba(255,255,255,.42);
+  box-shadow:0 10px 35px rgba(20,33,61,.06);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.hero-kicker{
+  color:var(--pitch)!important;
+  font-family:var(--font-body)!important;
+  font-weight:700!important;
+  text-shadow:0 1px 1px rgba(255,255,255,.65);
+}
+.slide h1{
+  color:var(--pitch)!important;
+  font-family:var(--font-head)!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  letter-spacing:.025em!important;
+  text-shadow:0 2px 0 rgba(255,255,255,.65),0 8px 24px rgba(20,33,61,.10)!important;
+}
+.slide p{
+  color:#242424!important;
+  font-family:var(--font-body)!important;
+  font-weight:500;
+  text-shadow:0 1px 1px rgba(255,255,255,.7);
+}
+.hero-trust{font-family:var(--font-body)!important;color:#3f3b35!important;font-weight:700}
+
+/* Category thumbnails: image stays visible, label gets its own readable panel. */
+.cat-tile{
+  position:relative!important;
+  padding:0!important;
+  min-height:188px;
+  display:flex!important;
+  align-items:flex-end!important;
+  background:#fff!important;
+}
+.cat-thumb{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  margin:0!important;
+  z-index:0;
+  filter:none!important;
+  transform:scale(1.001);
+}
+.cat-tile::before{
+  content:"";
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(180deg,rgba(20,33,61,0) 42%,rgba(20,33,61,.08) 55%,rgba(20,33,61,.68) 100%)!important;
+  pointer-events:none;
+}
+.cat-tile b{
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding:.78rem .75rem .82rem!important;
+  background:rgba(255,255,255,.94)!important;
+  color:var(--pitch)!important;
+  border-top:1px solid rgba(232,226,216,.95);
+  font-family:var(--font-head)!important;
+  font-size:1rem!important;
+  line-height:1.12!important;
+  text-align:center!important;
+  text-shadow:none!important;
+  min-height:42px;
+  box-sizing:border-box;
+}
+.cat-tile:hover .cat-thumb{transform:scale(1.05)!important;filter:saturate(1.04) contrast(1.02)!important}
+.cat-tile:hover b{background:#fff!important;color:var(--pitch)!important}
+
+/* Use Atlanta College on the major sports/display elements, keep body text readable. */
+.logo,.section-head h2,.results h1,.newsletter h2,.brand-strip span,.price,.timer,.cat-tile b{
+  font-family:var(--font-head)!important;
+}
+.hdr-nav a,.hdr-link,.search input,.search select,.btn,.pcard .pname,.pcard .btn,.hero-secondary{
+  font-family:var(--font-body)!important;
+}
+
+@media (max-width:700px){
+  .hero-copy{padding:.9rem 1rem 1rem;max-width:calc(100% - 2rem);background:rgba(255,255,255,.62)}
+  .slide h1{font-size:clamp(2.65rem,13vw,4.6rem)!important}
+  .cat-tile{min-height:165px}
+  .cat-tile b{font-size:.92rem!important;padding:.68rem .55rem .72rem!important}
+}
+
+/* ===== Final Hero readability: simple default typography ===== */
+:root{
+  --font-head: Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea{
+  font-family: Arial, Helvetica, sans-serif!important;
+}
+
+h1,h2,h3,h4,.logo,
+.logo,.section-head h2,.results h1,.newsletter h2,.brand-strip span,
+.price,.timer,.cat-tile b{
+  font-family: Arial, Helvetica, sans-serif!important;
+}
+
+/* Do not wash out the football photography. */
+.hero::after{
+  background:linear-gradient(90deg,
+    rgba(250,248,245,.78) 0%,
+    rgba(250,248,245,.60) 28%,
+    rgba(250,248,245,.28) 52%,
+    rgba(250,248,245,.08) 76%,
+    rgba(250,248,245,0) 100%)!important;
+}
+
+.hero-copy{
+  background:rgba(255,255,255,.78)!important;
+  border-left:3px solid #B8963E!important;
+  box-shadow:0 12px 30px rgba(20,33,61,.10)!important;
+  backdrop-filter:blur(3px)!important;
+  -webkit-backdrop-filter:blur(3px)!important;
+}
+
+.hero-kicker{
+  color:#14213D!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-weight:700!important;
+  letter-spacing:.12em!important;
+  text-shadow:none!important;
+}
+
+.slide h1{
+  color:#14213D!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-style:normal!important;
+  font-weight:800!important;
+  letter-spacing:-.025em!important;
+  line-height:.96!important;
+  text-shadow:0 2px 5px rgba(255,255,255,.8)!important;
+  -webkit-text-stroke:0!important;
+  text-transform:uppercase!important;
+}
+
+.slide p{
+  color:#262626!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-weight:500!important;
+  text-shadow:none!important;
+}
+
+.hero-secondary{
+  color:#14213D!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-weight:600!important;
+}
+
+.hero-trust{
+  color:#303030!important;
+  font-family:Arial, Helvetica, sans-serif!important;
+  font-weight:700!important;
+}
+
+.hero-trust i{background:#B8963E!important}
+
+.btn,.hdr-nav a,.hdr-link,.search input,.search select,
+.pcard .pname,.pcard .btn{
+  font-family:Arial, Helvetica, sans-serif!important;
+}
+
+@media(max-width:700px){
+  .hero::after{
+    background:linear-gradient(90deg,
+      rgba(250,248,245,.88) 0%,
+      rgba(250,248,245,.68) 52%,
+      rgba(250,248,245,.18) 100%)!important;
+  }
+  .hero-copy{background:rgba(255,255,255,.86)!important}
+  .slide h1{font-size:clamp(2.6rem,12vw,4.5rem)!important}
+}
+
+/* ===== Shop jerseys by nation + club: round flags (same circle shape as club logos) + cool hover ===== */
+:is(#nations,#clubs) .circle { color:#514d47; transition:color .3s; animation:flagPop .55s cubic-bezier(.2,.7,.2,1) both; }
+:is(#nations,#clubs) .circle:nth-child(2){animation-delay:.05s} :is(#nations,#clubs) .circle:nth-child(3){animation-delay:.1s}
+:is(#nations,#clubs) .circle:nth-child(4){animation-delay:.15s} :is(#nations,#clubs) .circle:nth-child(5){animation-delay:.2s}
+:is(#nations,#clubs) .circle:nth-child(6){animation-delay:.25s} :is(#nations,#clubs) .circle:nth-child(7){animation-delay:.3s}
+:is(#nations,#clubs) .circle:nth-child(8){animation-delay:.35s} :is(#nations,#clubs) .circle:nth-child(9){animation-delay:.4s}
+:is(#nations,#clubs) .circle:nth-child(10){animation-delay:.45s} :is(#nations,#clubs) .circle:nth-child(11){animation-delay:.5s} :is(#nations,#clubs) .circle:nth-child(12){animation-delay:.55s}
+@keyframes flagPop { from { opacity:0; transform:translateY(14px) scale(.7); } to { opacity:1; transform:none; } }
+:is(#nations,#clubs) .circle:hover { color:var(--pitch); }
+:is(#nations,#clubs) .flag { position:relative; display:block; width:76px; height:76px; margin:0 auto .45rem; border-radius:50%; padding:3px; background:#fff;
+  box-shadow:0 0 0 2px var(--line), 0 6px 14px rgba(20,33,61,.12); transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+:is(#nations,#clubs) .flag img { position:relative; z-index:1; display:block; width:100%; height:100%; margin:0; aspect-ratio:1/1; border:0!important; border-radius:50%; object-fit:cover; box-shadow:none!important; transform:none!important; transition:transform .6s cubic-bezier(.2,.7,.2,1)!important; }
+/* spinning gold/navy ring on hover */
+:is(#nations,#clubs) .flag::before { content:""; position:absolute; inset:-5px; border-radius:50%; z-index:0; opacity:0; transition:opacity .3s;
+  background:conic-gradient(var(--green), transparent 35%, var(--pitch), transparent 75%, var(--green));
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px)); mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px)); animation:flagSpin 2.4s linear infinite; }
+/* glossy shine sweep */
+:is(#nations,#clubs) .flag::after { content:""; position:absolute; inset:3px; border-radius:50%; z-index:2; pointer-events:none;
+  background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.65) 50%, transparent 65%); background-size:260% 100%; background-position:160% 0; }
+:is(#nations,#clubs) .circle:hover .flag { transform:translateY(-5px) scale(1.08); box-shadow:0 0 0 2px #fff, 0 14px 26px rgba(20,33,61,.22); }
+:is(#nations,#clubs) .circle:hover .flag::before { opacity:1; }
+:is(#nations,#clubs) .circle:hover .flag::after { background-position:-60% 0; transition:background-position .8s ease; }
+:is(#nations,#clubs) .circle:hover .flag img { transform:scale(1.14)!important; }
+@keyframes flagSpin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { :is(#nations,#clubs) .circle, :is(#nations,#clubs) .flag::before { animation:none; } }
+:is(:is(#nations,#clubs),#clubs).circles { padding:18px 12px 10px; }
+/* club logos: keep the whole badge visible inside the circle */
+#clubs .flag img { object-fit:contain; padding:9px; background:#fff; }
+#clubs .circle:hover .flag img { transform:scale(1.08)!important; }
+
+
+/* ===== Product cards: animated theme outline (gold + navy) ===== */
+@property --pc-angle { syntax:"<angle>"; initial-value:0deg; inherits:false; }
+.pcard { isolation:isolate; }
+/* 1) glowing gradient ring — drifts slowly at rest, spins fast + bright on hover */
+.pcard::before { content:""; position:absolute; inset:0; border-radius:inherit; padding:2px; z-index:4; pointer-events:none;
+  background:conic-gradient(from var(--pc-angle), transparent 0 55%, rgba(184,150,62,.0) 55%, #B8963E 78%, #14213D 92%, transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity:.45; animation:pcSpin 7s linear infinite; transition:opacity .4s, padding .3s; }
+.pcard:hover::before { opacity:1; padding:3px; animation-duration:2.2s; }
+@keyframes pcSpin { to { --pc-angle:360deg; } }
+/* 2) gold corner brackets that slide in on hover */
+.pcard::after { content:""; position:absolute; inset:16px; z-index:3; pointer-events:none; opacity:0; transition:inset .45s cubic-bezier(.2,.7,.2,1), opacity .35s;
+  background:
+    linear-gradient(#B8963E,#B8963E) 0 0/22px 2px no-repeat, linear-gradient(#B8963E,#B8963E) 0 0/2px 22px no-repeat,
+    linear-gradient(#B8963E,#B8963E) 100% 0/22px 2px no-repeat, linear-gradient(#B8963E,#B8963E) 100% 0/2px 22px no-repeat,
+    linear-gradient(#B8963E,#B8963E) 0 100%/22px 2px no-repeat, linear-gradient(#B8963E,#B8963E) 0 100%/2px 22px no-repeat,
+    linear-gradient(#B8963E,#B8963E) 100% 100%/22px 2px no-repeat, linear-gradient(#B8963E,#B8963E) 100% 100%/2px 22px no-repeat; }
+.pcard:hover::after { inset:8px; opacity:1; }
+/* 3) lift + glow */
+.pcard:hover { transform:translateY(-7px); border-color:transparent!important;
+  box-shadow:0 18px 38px rgba(20,33,61,.20), 0 0 26px rgba(184,150,62,.32)!important; }
+@media (prefers-reduced-motion: reduce) { .pcard::before { animation:none; } }
